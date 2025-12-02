@@ -9,7 +9,6 @@ const Square = ({value, onSquareClick: callBackFunc}) => {
 
   return <>
             <div className="buttonWrapper">
-              <div className="status"> {status} </div>
               <div className="square" style={{display: "flex", justifyContent: 'center', alignItems: 'center', backgroundColor: '#344350ff', height :'100%', width: '100%'
               }} onClick={ callBackFunc } >{value}</div>
             </div>
@@ -21,12 +20,6 @@ const Square = ({value, onSquareClick: callBackFunc}) => {
 const RestartButton = (props) => {
   return <button className={props.className} onClick={props.clickAction} style={{color: props.textColor, backgroundColor:props.bgColor, ...props.extraStyles}}> {props.buttonText}</button>
 }
-
-
-
-
-
-
 
 
 const App = () => {
@@ -81,7 +74,7 @@ const App = () => {
   const newGameSquares = [...square];
   setSquare(newGameSquares);
   alert('New Game Started!')
-  
+
     }
 
   else {
