@@ -9,17 +9,21 @@ const Square = ({value, onSquareClick: callBackFunc}) => {
 
   return <>
             <div className="buttonWrapper">
+              <div className="status"> {status} </div>
               <div className="square" style={{display: "flex", justifyContent: 'center', alignItems: 'center', backgroundColor: '#344350ff', height :'100%', width: '100%'
               }} onClick={ callBackFunc } >{value}</div>
             </div>
         </>
 }
 
-
+  
 
 const RestartButton = (props) => {
   return <button className={props.className} onClick={props.clickAction} style={{color: props.textColor, backgroundColor:props.bgColor, ...props.extraStyles}}> {props.buttonText}</button>
 }
+
+
+
 
 
 
@@ -31,31 +35,53 @@ const App = () => {
   const [xisUp, setTurn] = useState(true);
   const [playStatus, setPlay] = useState(false);
 
+  const winner = calculateWinner(square);
+
+  let status;
+  if (winner) {
+    status = "Winner: " + winner;
+  } else {
+    status = "Next player: " + (xisUp ? "X" : "O");
+  }
+
+
   function handleClick(i) {
     console.log(i)
+
+    //Makes copy of the array to allow re-render
     let newSquares = [ ...square ]
-    if(square[i]) {return}
+    
+
+    
+    //checks to see if the square pressed has a truthy value. If it does it'll return nothing.
+    if(square[i] || calculateWinner(square)) {return}
     
     xisUp == true ? newSquares[i] = "X" : newSquares[i]="O";
-
-     xisUp && console.log('Current turn for X!')
-
-    setPlay(true)
+    
+    //Updates the states
     setSquare(newSquares);
     setTurn(!xisUp)
+    let w = calculateWinner(newSquares);
+    if (w) setPlay(true)   
+    
   }
 
   function restartAction() {
-
+  
   const restartArray = square.filter((i) => { return i != null && true })
+
 
   if(restartArray.length >= 1)
     {
   console.log(restartArray)
+  //Creates an array with nine indexes filled with the value of null
   const square = Array(9).fill(null);
+
+  //makes a copy of the square array above and sets it into newGamesSquares
   const newGameSquares = [...square];
   setSquare(newGameSquares);
   alert('New Game Started!')
+  
     }
 
   else {
@@ -64,6 +90,28 @@ const App = () => {
     }
 
 }
+
+function calculateWinner(square) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (square[a] && square[a] === square[b] && square[a] === square[c]) {
+      return square[a];
+    }
+  }
+  return null;
+}
+
+
 
   return (
 
@@ -78,7 +126,8 @@ const App = () => {
             />
           </div>
 
-          <h3 style={{ fontFamily: 'Poppins',fontSize: '2rem', display: 'flex', justifyContent: "center"}}>Tic Tac Toe</h3>
+          <h3 style={{ fontFamily: 'Poppins',fontSize: '2rem', display: 'flex', justifyContent: "center", margin: '0', padding:'0'}}>Tic Tac Toe</h3>
+          <h4 style={{display: 'flex', justifyContent: 'center', alignItems: 'center' , marginBottom: '15px', marginTop: 5}}>{status}</h4>
           <div className="square-container">
            
              <Square cool="i am cool" onSquareClick={()=>{ handleClick(0)} } value={square[0]} />
