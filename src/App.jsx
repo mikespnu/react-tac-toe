@@ -30,7 +30,6 @@ const App = () => {
   const [playStatus, setPlay] = useState(false);
 
   const winner = calculateWinner(square);
-
   let status;
   if (winner) {
     status = "Winner: " + winner;
@@ -56,7 +55,8 @@ const App = () => {
     setSquare(newSquares);
     setTurn(!xisUp)
     let w = calculateWinner(newSquares);
-    if (w) setPlay(true)   
+    if (w) setPlay(true)
+    if (w) toast(`Good Job! Player ${w}`, { icon: '👏', });
     
   }
 
@@ -74,22 +74,17 @@ const App = () => {
   //makes a copy of the square array above and sets it into newGamesSquares
   const newGameSquares = [...square];
   setSquare(newGameSquares);
+
+  //Alert for new game started!
   toast.success('New Game Started!')
 
+  //Resets playStatus to false
+  setPlay(false)
     }
 
-  else {
-    console.log(restartArray.length)
-    toast('No Need to Restart!',
-  {
-    icon: '🙄',
-    style: {
-      borderRadius: '10px',
-      background: '#333',
-      color: '#fff',
-    },
-  }
-);
+  else 
+    {
+    toast('No Need to Restart!', { icon: '🙄', style: { borderRadius: '10px', background: '#333', color: '#fff', }, } );
     }
 
 }
@@ -148,7 +143,7 @@ function calculateWinner(square) {
              <Square onSquareClick={()=>{handleClick(8)}}  value={square[8]}/>          
           </div>
             
-          <RestartButton className="tester" extraStyles={ {marginTop: '40px', width: "100%", outline: 'none',}} clickAction={restartAction} buttonText="Restart Game" textColor="white" bgColor="darkblue"/>
+          <RestartButton className="tester" extraStyles={ {marginTop: '40px', width: "100%", outline: 'none',}} clickAction={restartAction} buttonText="Restart Game" textColor="#1B3C53" bgColor="#D2C1B6"/>
 
         </div>
 
