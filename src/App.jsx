@@ -2,6 +2,7 @@ import Clock from "./components/clock"
 import MyButton from "./components/button"
 import { useState } from "react"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import toast,{Toaster} from 'react-hot-toast'
 
 
 
@@ -40,7 +41,7 @@ const App = () => {
 
   function handleClick(i) {
     console.log(i)
-
+    
     //Makes copy of the array to allow re-render
     let newSquares = [ ...square ]
     
@@ -73,13 +74,22 @@ const App = () => {
   //makes a copy of the square array above and sets it into newGamesSquares
   const newGameSquares = [...square];
   setSquare(newGameSquares);
-  alert('New Game Started!')
+  toast.success('New Game Started!')
 
     }
 
   else {
     console.log(restartArray.length)
-    alert('No need to restart!')
+    toast('No Need to Restart!',
+  {
+    icon: '🙄',
+    style: {
+      borderRadius: '10px',
+      background: '#333',
+      color: '#fff',
+    },
+  }
+);
     }
 
 }
@@ -118,7 +128,7 @@ function calculateWinner(square) {
             key={playStatus}
             />
           </div>
-
+          <Toaster position="top-center" />
           <h3 style={{ fontFamily: 'Poppins',fontSize: '2rem', display: 'flex', justifyContent: "center", margin: '0', padding:'0'}}>Tic Tac Toe</h3>
           <h4 style={{display: 'flex', justifyContent: 'center', alignItems: 'center' , marginBottom: '15px', marginTop: 5}}>{status}</h4>
           <div className="square-container">
