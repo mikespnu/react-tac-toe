@@ -1,16 +1,23 @@
-# React + Vite
+# React Tac Toe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Introduction
 
-Currently, two official plugins are available:
+Project built from the React website documentation but with modifications and some improvements.
+The React doc tic tac toe (RTT) has no styling. 
+I added some simple styling, hover and opacity animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Minor improvements
+Aside from the basic UI decoration, I have added alerts and a restart game button. 
+Users can restart the game once you reach a standstill which happens often with skilled Tic Tac Toe players
 
-## React Compiler
+**React-hot-toast** was used for as the library for the window alerts. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+When a player wins a Lottie animation is played utilzing useState **setPlay(true)** The Lottie container also reset once a user resets the game to allow the Lottie container to re-render and replay. 
 
-## Expanding the ESLint configuration
+The app has no backend and no local storage. Which leads to future improvements...
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Possible Future Updates
+- Add a leaderboard
+- Add named players
+- Add Websockets for online playing vs opponents
+- Better X & O marking with possible animations
