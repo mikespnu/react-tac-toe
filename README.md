@@ -1,4 +1,4 @@
-# Live Preview: [React Tac Toe](http://react-tac-toe.s3-website.us-east-2.amazonaws.com/)
+# Live Preview: [Click Here](http://react-tac-toe.s3-website.us-east-2.amazonaws.com/)
 *Hosted on AWS S3 Bucket*
 
 
