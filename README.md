@@ -1,3 +1,9 @@
+# Live Preview
+[React Tac Toe](http://react-tac-toe.s3-website.us-east-2.amazonaws.com/)
+
+*Hosted on AWS S3 Bucket*
+
+
 # React Tac Toe
 
 ### Introduction
