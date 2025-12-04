@@ -7,9 +7,9 @@ jobs:
   test: 
     runs-on: ubuntu-latest
   peter:
-    runs: echo 'we love you'
+    run: echo 'we love you'
   clemson:
-    runs: echo 'Tigers'
+    run: echo 'Tigers'
 
     steps:
       - name: checkout Repo
