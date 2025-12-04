@@ -12,13 +12,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Test Shell Command
-        run: echo "Temp workflow running..." ; touch templogFile.txt ; echo test success! >> templogFile.txt ; ls -la
-
-  clemson:
-    runs-on: Death Valley
-
-    steps:
-      - name: Tiger
-        run: echo 'Wheres that tiger'
-
-
+        run: echo "Temp workflow running..." ; touch templogFile.txt ; echo test success! >> templogFile.txt
