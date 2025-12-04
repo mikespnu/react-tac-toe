@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
 
 jobs: 
-  test: 
+  - test: 
     runs-on: ubuntu-latest
-  peter:
+  - peter:
     run: echo 'we love you'
-  clemson:
+  - clemson:
     run: echo 'Tigers'
 
     steps:
