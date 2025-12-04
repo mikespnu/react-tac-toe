@@ -13,3 +13,14 @@ jobs:
 
       - name: Run Test Shell Command
         run: echo "Temp workflow running..." ; touch templogFile.txt ; echo test success! >> templogFile.txt
+
+  clemsonTigers: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Run Test Shell Command
+        run: echo "Temp workflow running..." ; touch templogFile.txt ; echo test success! >> templogFile.txt
+        
