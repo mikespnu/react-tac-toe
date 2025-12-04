@@ -6,6 +6,10 @@ on:
 jobs: 
   test: 
     runs-on: ubuntu-latest
+  peter:
+    runs: echo 'we love you'
+  clemson:
+    runs: echo 'Tigers'
 
     steps:
       - name: checkout Repo
