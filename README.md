@@ -26,3 +26,9 @@ The app has no backend and no local storage. Which leads to future improvements.
 - Add named players
 - Add Websockets for online playing vs opponents
 - Better X & O marking with possible animations
+
+## Dev Ops
+
+Due to the small app without sensitive data - the only security added will be an SSL certificate.
+An Github to S3 pipeline to automatically install dependencies if needed
+Sync the dist/ to the bucket
