@@ -6,10 +6,6 @@ on:
 jobs: 
   test: 
     runs-on: ubuntu-latest
-  peter:
-    run: echo 'we love you'
-  clemson:
-    run: echo 'Tigers'
 
     steps:
       - name: checkout Repo
@@ -17,4 +13,12 @@ jobs:
 
       - name: Run Test Shell Command
         run: echo "Temp workflow running..." ; touch templogFile.txt ; echo test success! >> templogFile.txt ; ls -la
+
+  clemson:
+    runs-on: Death Valley
+
+    steps:
+      - name: Tiger
+        run: echo 'Wheres that tiger'
+
 
