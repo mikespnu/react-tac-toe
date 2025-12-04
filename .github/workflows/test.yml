@@ -1,8 +1,7 @@
 name: Practice Work Flow
 
 on: 
-  push:
-    branches: ['main']
+  workflow_dispatch:
 
 jobs: 
   test: 
@@ -13,6 +12,5 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Test Shell Command
-        run: echo "Temp workflow running..." | touch templogFile.txt | echo test success! >> templogFile.txt | ls -la
+        run: echo "Temp workflow running..." ; touch templogFile.txt ; echo test success! >> templogFile.txt ; ls -la
 
-        
